@@ -1,5 +1,9 @@
 language: java
+addons :
+  sonarcloud:
+    organization: "davideleoni997"
+    token:
+      secure: "nx2d7Q7Hu4knMkt/fbtrLOZgt5nk3X52/jJzu7Urtm+tEfESN/vwKopE/S1Z9/3/nA+dW3ZBFA7fx1eV2BZG7AO/UxKR4xlrK0cEvQgjPh2kLNOVuJhCyrNim2A1uWQQPColG9avb2Gwd7jTnRA/QTGHtzIc7zZP00KMXbRJbjFAordsZHr2nx8ppGX8lPyMZ+P70LGTdE55+JQaqq47rczsdUvHrd2tI4k7timfiEXyOS4WMHyYfx9UfldT1KDsaqXwbIHsnItb/frSvrf8TKkM5MxLRNJwJU8lPPDr/BNHUXjo+Ybo3kPM84koav7er7IV9jhMLxEVVrpS11jQhv29oumcWCPGxx/xx968MOKoc9b47nbtuNcQuXyZp8y7H3D071iXIefIbkq3M8Tw6a8oM+0S7rts5TzQNis6fYJ5CjiceWvBhCnszdZEfWpMVXo8LEDTp6Bd9dvEaz+X+vdDLTXCq4wsGUT9oDTvji5fZ7ZN+9V1B5wnee0u2Dq0IBVQ57qpuJ2xtg5RseV1z7QUynw/JDvhoPcIyke/OIcptfEwTF1forTYyg4s+TvqaqiMsZXxUP0DXLje4F1RiaJ2IsdjZbCcSXtamJZwns8iV77eZxyOYZaWop1d4FtmN6hMyB1CdNXoaiIAvQjv8qHKdsOz2xhtkytcgnAznrg="
 
-mvn install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
-
-mvn test -B
+script:
+ - mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent install sonar:sonar -Dsonar.projectKey=davideleoni997_MavenTry
